@@ -14,7 +14,7 @@ private:
 	float dotGridGradient(unsigned ix, unsigned iy, float x, float y);
 
 public:
-	perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed);
+	perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
 	float eval(const float& x, const float& y);
 };
 

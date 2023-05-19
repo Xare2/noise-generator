@@ -13,7 +13,7 @@ protected:
 public:
 	/*point_noise(unsigned noise_grid_resolution = 256, unsigned seed = 0)
 		: noise_generator(seed) { };*/
-	lattice_noise(unsigned noise_grid_resolution, unsigned seed);
+	lattice_noise(unsigned noise_grid_resolution, unsigned seed, bool color);
 	~lattice_noise();
 };
 

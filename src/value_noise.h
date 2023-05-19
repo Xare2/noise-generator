@@ -9,7 +9,7 @@ private:
 	unsigned _noise_mask;
 
 public:
-	value_noise(float frequency = 1, unsigned image_resolution = 512, unsigned noise_grid_resolution = 256, unsigned seed = 0);
+	value_noise(float frequency = 1, unsigned image_resolution = 512, unsigned noise_grid_resolution = 256, unsigned seed = 0, bool color);
 	float eval(const float& x, const float& y);
 };
 

@@ -1,7 +1,7 @@
 #include "value_noise.h"
 
-value_noise::value_noise(float frequency, unsigned image_resolution, unsigned noise_grid_resolution, unsigned seed)
-	: lattice_noise(noise_grid_resolution, seed)
+value_noise::value_noise(float frequency, unsigned image_resolution, unsigned noise_grid_resolution, unsigned seed, bool color)
+	: lattice_noise(noise_grid_resolution, seed, color)
 {
 	_frequency = frequency;
 	_image_resolution = image_resolution;

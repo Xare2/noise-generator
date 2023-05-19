@@ -1,7 +1,7 @@
 #include "voronoi_noise.h"
 
-voronoi_noise::voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed) :
-	noise_generator(seed)
+voronoi_noise::voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed, bool color) :
+	noise_generator(seed, color)
 {
 	_image_resolution = image_resolution;
 	_cell_amount = cell_amount;

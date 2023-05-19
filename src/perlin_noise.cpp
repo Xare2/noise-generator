@@ -1,6 +1,7 @@
 #include "perlin_noise.h"
 
-perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed) : lattice_noise(noise_grid_resolution, seed)
+perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color)
+	: lattice_noise(noise_grid_resolution, seed, color)
 {
 	_frequency = frequency;
 	_vector_grid = new vector2[noise_grid_resolution * noise_grid_resolution];
@@ -11,7 +12,8 @@ perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsi
 			float random = rand_01() * 2 * M_PI;
 
 			vector2 v;
-			v.x = cos(random); v.y = sin(random);
+			v.x = cos(random);
+			v.y = sin(random);
 
 			_vector_grid[get_array_index(noise_grid_resolution, j, i)] = v;
 		}
@@ -26,14 +28,14 @@ float perlin_noise::dotGridGradient(unsigned ix, unsigned iy, float x, float y)
 	float dy = y - (float)iy;
 
 	// Compute the dot-product
-	return (dx*gradient.x + dy * gradient.y);
+	return (dx * gradient.x + dy * gradient.y);
 }
 
-float perlin_noise::eval(const float & x, const float & y)
+float perlin_noise::eval(const float &x, const float &y)
 {
 	float px = x * _frequency;
 	float py = y * _frequency;
-	
+
 	unsigned x0 = (unsigned)floor(px);
 	unsigned x1 = x0 + 1;
 	unsigned y0 = (unsigned)floor(py);
@@ -50,11 +52,11 @@ float perlin_noise::eval(const float & x, const float & y)
 	n0 = this->dotGridGradient(x0, y0, px, py);
 	n1 = this->dotGridGradient(x1, y0, px, py);
 	ix0 = smootherstep(n0, n1, sx);
-								 
+
 	n0 = this->dotGridGradient(x0, y1, px, py);
 	n1 = this->dotGridGradient(x1, y1, px, py);
 	ix1 = smootherstep(n0, n1, sx);
 
 	value = smootherstep(ix0, ix1, sy);
-	return value * .5f + .5f; 
+	return value * .5f + .5f;
 }

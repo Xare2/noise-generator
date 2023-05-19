@@ -11,7 +11,7 @@ private:
 	float distance(vector2 a, vector2 b);
 
 public:
-	voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed);
+	voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed, bool color);
 	float eval(const float& x, const float& y);
 };
 

@@ -1,6 +1,6 @@
 #include "lattice_noise.h"
 
-lattice_noise::lattice_noise(unsigned noise_grid_resolution, unsigned seed) : noise_generator(seed)
+lattice_noise::lattice_noise(unsigned noise_grid_resolution, unsigned seed, bool color) : noise_generator(seed, color)
 {
 	_noise_grid_resolution = noise_grid_resolution;
 	_noise_grid = new float[_noise_grid_resolution * _noise_grid_resolution];

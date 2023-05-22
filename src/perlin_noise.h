@@ -15,6 +15,7 @@ private:
 
 public:
 	perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
+	~perlin_noise();
 	float eval(const float& x, const float& y);
 };
 

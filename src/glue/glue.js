@@ -186,19 +186,6 @@ function ensureFloat64(value) {
 
 
 // noise_generator
-
-noise_generator.prototype['rand_01'] = noise_generator.prototype.rand_01 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_noise_generator_rand_01_0(self);
-};;
-
-noise_generator.prototype['get_array_index'] = noise_generator.prototype.get_array_index = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, row, col) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (row && typeof row === 'object') row = row.ptr;
-  if (col && typeof col === 'object') col = col.ptr;
-  return _emscripten_bind_noise_generator_get_array_index_3(self, width, row, col);
-};;
 /** @suppress {undefinedVars, duplicate} @this{Object} */function noise_generator(s, color) {
   if (s && typeof s === 'object') s = s.ptr;
   if (color && typeof color === 'object') color = color.ptr;
@@ -218,43 +205,11 @@ noise_generator.prototype['eval'] = noise_generator.prototype.eval = /** @suppre
   return _emscripten_bind_noise_generator_eval_2(self, x, y);
 };;
 
-noise_generator.prototype['getImageArray'] = noise_generator.prototype.getImageArray = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, height) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (height && typeof height === 'object') height = height.ptr;
-  return _emscripten_bind_noise_generator_getImageArray_2(self, width, height);
-};;
-
-  noise_generator.prototype['get_m_seed'] = noise_generator.prototype.get_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_noise_generator_get_m_seed_0(self);
-};
-    noise_generator.prototype['set_m_seed'] = noise_generator.prototype.set_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_noise_generator_set_m_seed_1(self, arg0);
-};
-    Object.defineProperty(noise_generator.prototype, 'm_seed', { get: noise_generator.prototype.get_m_seed, set: noise_generator.prototype.set_m_seed });
-  noise_generator.prototype['get_m_color'] = noise_generator.prototype.get_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return !!(_emscripten_bind_noise_generator_get_m_color_0(self));
-};
-    noise_generator.prototype['set_m_color'] = noise_generator.prototype.set_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_noise_generator_set_m_color_1(self, arg0);
-};
-    Object.defineProperty(noise_generator.prototype, 'm_color', { get: noise_generator.prototype.get_m_color, set: noise_generator.prototype.set_m_color });
   noise_generator.prototype['__destroy__'] = noise_generator.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_noise_generator___destroy___0(self);
 };
 // lattice_noise
-
-lattice_noise.prototype['calculate_noise_grid'] = lattice_noise.prototype.calculate_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_lattice_noise_calculate_noise_grid_0(self);
-};;
 /** @suppress {undefinedVars, duplicate} @this{Object} */function lattice_noise(noise_grid_resolution, seed, color) {
   if (noise_grid_resolution && typeof noise_grid_resolution === 'object') noise_grid_resolution = noise_grid_resolution.ptr;
   if (seed && typeof seed === 'object') seed = seed.ptr;
@@ -268,19 +223,6 @@ lattice_noise.prototype.__class__ = lattice_noise;
 lattice_noise.__cache__ = {};
 Module['lattice_noise'] = lattice_noise;
 
-lattice_noise.prototype['rand_01'] = lattice_noise.prototype.rand_01 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_lattice_noise_rand_01_0(self);
-};;
-
-lattice_noise.prototype['get_array_index'] = lattice_noise.prototype.get_array_index = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, row, col) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (row && typeof row === 'object') row = row.ptr;
-  if (col && typeof col === 'object') col = col.ptr;
-  return _emscripten_bind_lattice_noise_get_array_index_3(self, width, row, col);
-};;
-
 lattice_noise.prototype['eval'] = lattice_noise.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
   var self = this.ptr;
   if (x && typeof x === 'object') x = x.ptr;
@@ -288,56 +230,6 @@ lattice_noise.prototype['eval'] = lattice_noise.prototype.eval = /** @suppress {
   return _emscripten_bind_lattice_noise_eval_2(self, x, y);
 };;
 
-lattice_noise.prototype['getImageArray'] = lattice_noise.prototype.getImageArray = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, height) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (height && typeof height === 'object') height = height.ptr;
-  return _emscripten_bind_lattice_noise_getImageArray_2(self, width, height);
-};;
-
-  lattice_noise.prototype['get_m_noise_grid'] = lattice_noise.prototype.get_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_lattice_noise_get_m_noise_grid_1(self, arg0);
-};
-    lattice_noise.prototype['set_m_noise_grid'] = lattice_noise.prototype.set_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
-  var self = this.ptr;
-  ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_lattice_noise_set_m_noise_grid_2(self, arg0, arg1);
-};
-    Object.defineProperty(lattice_noise.prototype, 'm_noise_grid', { get: lattice_noise.prototype.get_m_noise_grid, set: lattice_noise.prototype.set_m_noise_grid });
-  lattice_noise.prototype['get_m_noise_grid_resolution'] = lattice_noise.prototype.get_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_lattice_noise_get_m_noise_grid_resolution_0(self);
-};
-    lattice_noise.prototype['set_m_noise_grid_resolution'] = lattice_noise.prototype.set_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_lattice_noise_set_m_noise_grid_resolution_1(self, arg0);
-};
-    Object.defineProperty(lattice_noise.prototype, 'm_noise_grid_resolution', { get: lattice_noise.prototype.get_m_noise_grid_resolution, set: lattice_noise.prototype.set_m_noise_grid_resolution });
-  lattice_noise.prototype['get_m_seed'] = lattice_noise.prototype.get_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_lattice_noise_get_m_seed_0(self);
-};
-    lattice_noise.prototype['set_m_seed'] = lattice_noise.prototype.set_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_lattice_noise_set_m_seed_1(self, arg0);
-};
-    Object.defineProperty(lattice_noise.prototype, 'm_seed', { get: lattice_noise.prototype.get_m_seed, set: lattice_noise.prototype.set_m_seed });
-  lattice_noise.prototype['get_m_color'] = lattice_noise.prototype.get_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return !!(_emscripten_bind_lattice_noise_get_m_color_0(self));
-};
-    lattice_noise.prototype['set_m_color'] = lattice_noise.prototype.set_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_lattice_noise_set_m_color_1(self, arg0);
-};
-    Object.defineProperty(lattice_noise.prototype, 'm_color', { get: lattice_noise.prototype.get_m_color, set: lattice_noise.prototype.set_m_color });
   lattice_noise.prototype['__destroy__'] = lattice_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_lattice_noise___destroy___0(self);
@@ -387,15 +279,6 @@ Module['vector2'] = vector2;
   _emscripten_bind_vector2___destroy___0(self);
 };
 // perlin_noise
-
-perlin_noise.prototype['dotGridGradient'] = perlin_noise.prototype.dotGridGradient = /** @suppress {undefinedVars, duplicate} @this{Object} */function(ix, iy, x, y) {
-  var self = this.ptr;
-  if (ix && typeof ix === 'object') ix = ix.ptr;
-  if (iy && typeof iy === 'object') iy = iy.ptr;
-  if (x && typeof x === 'object') x = x.ptr;
-  if (y && typeof y === 'object') y = y.ptr;
-  return _emscripten_bind_perlin_noise_dotGridGradient_4(self, ix, iy, x, y);
-};;
 /** @suppress {undefinedVars, duplicate} @this{Object} */function perlin_noise(frequency, noise_grid_resolution, seed, color) {
   if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
   if (noise_grid_resolution && typeof noise_grid_resolution === 'object') noise_grid_resolution = noise_grid_resolution.ptr;
@@ -417,97 +300,6 @@ perlin_noise.prototype['eval'] = perlin_noise.prototype.eval = /** @suppress {un
   return _emscripten_bind_perlin_noise_eval_2(self, x, y);
 };;
 
-perlin_noise.prototype['calculate_noise_grid'] = perlin_noise.prototype.calculate_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_perlin_noise_calculate_noise_grid_0(self);
-};;
-
-perlin_noise.prototype['rand_01'] = perlin_noise.prototype.rand_01 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_perlin_noise_rand_01_0(self);
-};;
-
-perlin_noise.prototype['get_array_index'] = perlin_noise.prototype.get_array_index = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, row, col) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (row && typeof row === 'object') row = row.ptr;
-  if (col && typeof col === 'object') col = col.ptr;
-  return _emscripten_bind_perlin_noise_get_array_index_3(self, width, row, col);
-};;
-
-perlin_noise.prototype['getImageArray'] = perlin_noise.prototype.getImageArray = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, height) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (height && typeof height === 'object') height = height.ptr;
-  return _emscripten_bind_perlin_noise_getImageArray_2(self, width, height);
-};;
-
-  perlin_noise.prototype['get_m_frequency'] = perlin_noise.prototype.get_m_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_perlin_noise_get_m_frequency_0(self);
-};
-    perlin_noise.prototype['set_m_frequency'] = perlin_noise.prototype.set_m_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_perlin_noise_set_m_frequency_1(self, arg0);
-};
-    Object.defineProperty(perlin_noise.prototype, 'm_frequency', { get: perlin_noise.prototype.get_m_frequency, set: perlin_noise.prototype.set_m_frequency });
-  perlin_noise.prototype['get_m_vector_grid'] = perlin_noise.prototype.get_m_vector_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_perlin_noise_get_m_vector_grid_1(self, arg0), vector2);
-};
-    perlin_noise.prototype['set_m_vector_grid'] = perlin_noise.prototype.set_m_vector_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
-  var self = this.ptr;
-  ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_perlin_noise_set_m_vector_grid_2(self, arg0, arg1);
-};
-    Object.defineProperty(perlin_noise.prototype, 'm_vector_grid', { get: perlin_noise.prototype.get_m_vector_grid, set: perlin_noise.prototype.set_m_vector_grid });
-  perlin_noise.prototype['get_m_noise_grid'] = perlin_noise.prototype.get_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_perlin_noise_get_m_noise_grid_1(self, arg0);
-};
-    perlin_noise.prototype['set_m_noise_grid'] = perlin_noise.prototype.set_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
-  var self = this.ptr;
-  ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_perlin_noise_set_m_noise_grid_2(self, arg0, arg1);
-};
-    Object.defineProperty(perlin_noise.prototype, 'm_noise_grid', { get: perlin_noise.prototype.get_m_noise_grid, set: perlin_noise.prototype.set_m_noise_grid });
-  perlin_noise.prototype['get_m_noise_grid_resolution'] = perlin_noise.prototype.get_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_perlin_noise_get_m_noise_grid_resolution_0(self);
-};
-    perlin_noise.prototype['set_m_noise_grid_resolution'] = perlin_noise.prototype.set_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_perlin_noise_set_m_noise_grid_resolution_1(self, arg0);
-};
-    Object.defineProperty(perlin_noise.prototype, 'm_noise_grid_resolution', { get: perlin_noise.prototype.get_m_noise_grid_resolution, set: perlin_noise.prototype.set_m_noise_grid_resolution });
-  perlin_noise.prototype['get_m_seed'] = perlin_noise.prototype.get_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_perlin_noise_get_m_seed_0(self);
-};
-    perlin_noise.prototype['set_m_seed'] = perlin_noise.prototype.set_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_perlin_noise_set_m_seed_1(self, arg0);
-};
-    Object.defineProperty(perlin_noise.prototype, 'm_seed', { get: perlin_noise.prototype.get_m_seed, set: perlin_noise.prototype.set_m_seed });
-  perlin_noise.prototype['get_m_color'] = perlin_noise.prototype.get_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return !!(_emscripten_bind_perlin_noise_get_m_color_0(self));
-};
-    perlin_noise.prototype['set_m_color'] = perlin_noise.prototype.set_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_perlin_noise_set_m_color_1(self, arg0);
-};
-    Object.defineProperty(perlin_noise.prototype, 'm_color', { get: perlin_noise.prototype.get_m_color, set: perlin_noise.prototype.set_m_color });
   perlin_noise.prototype['__destroy__'] = perlin_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_perlin_noise___destroy___0(self);
@@ -535,104 +327,6 @@ value_noise.prototype['eval'] = value_noise.prototype.eval = /** @suppress {unde
   return _emscripten_bind_value_noise_eval_2(self, x, y);
 };;
 
-value_noise.prototype['calculate_noise_grid'] = value_noise.prototype.calculate_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_value_noise_calculate_noise_grid_0(self);
-};;
-
-value_noise.prototype['rand_01'] = value_noise.prototype.rand_01 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_value_noise_rand_01_0(self);
-};;
-
-value_noise.prototype['get_array_index'] = value_noise.prototype.get_array_index = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, row, col) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (row && typeof row === 'object') row = row.ptr;
-  if (col && typeof col === 'object') col = col.ptr;
-  return _emscripten_bind_value_noise_get_array_index_3(self, width, row, col);
-};;
-
-value_noise.prototype['getImageArray'] = value_noise.prototype.getImageArray = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, height) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (height && typeof height === 'object') height = height.ptr;
-  return _emscripten_bind_value_noise_getImageArray_2(self, width, height);
-};;
-
-  value_noise.prototype['get_m_frequency'] = value_noise.prototype.get_m_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_value_noise_get_m_frequency_0(self);
-};
-    value_noise.prototype['set_m_frequency'] = value_noise.prototype.set_m_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_value_noise_set_m_frequency_1(self, arg0);
-};
-    Object.defineProperty(value_noise.prototype, 'm_frequency', { get: value_noise.prototype.get_m_frequency, set: value_noise.prototype.set_m_frequency });
-  value_noise.prototype['get_m_image_resolution'] = value_noise.prototype.get_m_image_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_value_noise_get_m_image_resolution_0(self);
-};
-    value_noise.prototype['set_m_image_resolution'] = value_noise.prototype.set_m_image_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_value_noise_set_m_image_resolution_1(self, arg0);
-};
-    Object.defineProperty(value_noise.prototype, 'm_image_resolution', { get: value_noise.prototype.get_m_image_resolution, set: value_noise.prototype.set_m_image_resolution });
-  value_noise.prototype['get_m_noise_mask'] = value_noise.prototype.get_m_noise_mask = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_value_noise_get_m_noise_mask_0(self);
-};
-    value_noise.prototype['set_m_noise_mask'] = value_noise.prototype.set_m_noise_mask = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_value_noise_set_m_noise_mask_1(self, arg0);
-};
-    Object.defineProperty(value_noise.prototype, 'm_noise_mask', { get: value_noise.prototype.get_m_noise_mask, set: value_noise.prototype.set_m_noise_mask });
-  value_noise.prototype['get_m_noise_grid'] = value_noise.prototype.get_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_value_noise_get_m_noise_grid_1(self, arg0);
-};
-    value_noise.prototype['set_m_noise_grid'] = value_noise.prototype.set_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
-  var self = this.ptr;
-  ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_value_noise_set_m_noise_grid_2(self, arg0, arg1);
-};
-    Object.defineProperty(value_noise.prototype, 'm_noise_grid', { get: value_noise.prototype.get_m_noise_grid, set: value_noise.prototype.set_m_noise_grid });
-  value_noise.prototype['get_m_noise_grid_resolution'] = value_noise.prototype.get_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_value_noise_get_m_noise_grid_resolution_0(self);
-};
-    value_noise.prototype['set_m_noise_grid_resolution'] = value_noise.prototype.set_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_value_noise_set_m_noise_grid_resolution_1(self, arg0);
-};
-    Object.defineProperty(value_noise.prototype, 'm_noise_grid_resolution', { get: value_noise.prototype.get_m_noise_grid_resolution, set: value_noise.prototype.set_m_noise_grid_resolution });
-  value_noise.prototype['get_m_seed'] = value_noise.prototype.get_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_value_noise_get_m_seed_0(self);
-};
-    value_noise.prototype['set_m_seed'] = value_noise.prototype.set_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_value_noise_set_m_seed_1(self, arg0);
-};
-    Object.defineProperty(value_noise.prototype, 'm_seed', { get: value_noise.prototype.get_m_seed, set: value_noise.prototype.set_m_seed });
-  value_noise.prototype['get_m_color'] = value_noise.prototype.get_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return !!(_emscripten_bind_value_noise_get_m_color_0(self));
-};
-    value_noise.prototype['set_m_color'] = value_noise.prototype.set_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_value_noise_set_m_color_1(self, arg0);
-};
-    Object.defineProperty(value_noise.prototype, 'm_color', { get: value_noise.prototype.get_m_color, set: value_noise.prototype.set_m_color });
   value_noise.prototype['__destroy__'] = value_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_value_noise___destroy___0(self);
@@ -652,86 +346,11 @@ white_noise.prototype['eval'] = white_noise.prototype.eval = /** @suppress {unde
   return _emscripten_bind_white_noise_eval_2(self, x, y);
 };;
 
-white_noise.prototype['calculate_noise_grid'] = white_noise.prototype.calculate_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_white_noise_calculate_noise_grid_0(self);
-};;
-
-white_noise.prototype['rand_01'] = white_noise.prototype.rand_01 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_white_noise_rand_01_0(self);
-};;
-
-white_noise.prototype['get_array_index'] = white_noise.prototype.get_array_index = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, row, col) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (row && typeof row === 'object') row = row.ptr;
-  if (col && typeof col === 'object') col = col.ptr;
-  return _emscripten_bind_white_noise_get_array_index_3(self, width, row, col);
-};;
-
-white_noise.prototype['getImageArray'] = white_noise.prototype.getImageArray = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, height) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (height && typeof height === 'object') height = height.ptr;
-  return _emscripten_bind_white_noise_getImageArray_2(self, width, height);
-};;
-
-  white_noise.prototype['get_m_noise_grid'] = white_noise.prototype.get_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_white_noise_get_m_noise_grid_1(self, arg0);
-};
-    white_noise.prototype['set_m_noise_grid'] = white_noise.prototype.set_m_noise_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
-  var self = this.ptr;
-  ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_white_noise_set_m_noise_grid_2(self, arg0, arg1);
-};
-    Object.defineProperty(white_noise.prototype, 'm_noise_grid', { get: white_noise.prototype.get_m_noise_grid, set: white_noise.prototype.set_m_noise_grid });
-  white_noise.prototype['get_m_noise_grid_resolution'] = white_noise.prototype.get_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_white_noise_get_m_noise_grid_resolution_0(self);
-};
-    white_noise.prototype['set_m_noise_grid_resolution'] = white_noise.prototype.set_m_noise_grid_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_white_noise_set_m_noise_grid_resolution_1(self, arg0);
-};
-    Object.defineProperty(white_noise.prototype, 'm_noise_grid_resolution', { get: white_noise.prototype.get_m_noise_grid_resolution, set: white_noise.prototype.set_m_noise_grid_resolution });
-  white_noise.prototype['get_m_seed'] = white_noise.prototype.get_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_white_noise_get_m_seed_0(self);
-};
-    white_noise.prototype['set_m_seed'] = white_noise.prototype.set_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_white_noise_set_m_seed_1(self, arg0);
-};
-    Object.defineProperty(white_noise.prototype, 'm_seed', { get: white_noise.prototype.get_m_seed, set: white_noise.prototype.set_m_seed });
-  white_noise.prototype['get_m_color'] = white_noise.prototype.get_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return !!(_emscripten_bind_white_noise_get_m_color_0(self));
-};
-    white_noise.prototype['set_m_color'] = white_noise.prototype.set_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_white_noise_set_m_color_1(self, arg0);
-};
-    Object.defineProperty(white_noise.prototype, 'm_color', { get: white_noise.prototype.get_m_color, set: white_noise.prototype.set_m_color });
   white_noise.prototype['__destroy__'] = white_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_white_noise___destroy___0(self);
 };
 // voronoi_noise
-
-voronoi_noise.prototype['distance'] = voronoi_noise.prototype.distance = /** @suppress {undefinedVars, duplicate} @this{Object} */function(a, b) {
-  var self = this.ptr;
-  if (a && typeof a === 'object') a = a.ptr;
-  if (b && typeof b === 'object') b = b.ptr;
-  return _emscripten_bind_voronoi_noise_distance_2(self, a, b);
-};;
 /** @suppress {undefinedVars, duplicate} @this{Object} */function voronoi_noise(image_resolution, cell_amount, seed, color) {
   if (image_resolution && typeof image_resolution === 'object') image_resolution = image_resolution.ptr;
   if (cell_amount && typeof cell_amount === 'object') cell_amount = cell_amount.ptr;
@@ -753,79 +372,6 @@ voronoi_noise.prototype['eval'] = voronoi_noise.prototype.eval = /** @suppress {
   return _emscripten_bind_voronoi_noise_eval_2(self, x, y);
 };;
 
-voronoi_noise.prototype['rand_01'] = voronoi_noise.prototype.rand_01 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_voronoi_noise_rand_01_0(self);
-};;
-
-voronoi_noise.prototype['get_array_index'] = voronoi_noise.prototype.get_array_index = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, row, col) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (row && typeof row === 'object') row = row.ptr;
-  if (col && typeof col === 'object') col = col.ptr;
-  return _emscripten_bind_voronoi_noise_get_array_index_3(self, width, row, col);
-};;
-
-voronoi_noise.prototype['getImageArray'] = voronoi_noise.prototype.getImageArray = /** @suppress {undefinedVars, duplicate} @this{Object} */function(width, height) {
-  var self = this.ptr;
-  if (width && typeof width === 'object') width = width.ptr;
-  if (height && typeof height === 'object') height = height.ptr;
-  return _emscripten_bind_voronoi_noise_getImageArray_2(self, width, height);
-};;
-
-  voronoi_noise.prototype['get_m_cell_grid'] = voronoi_noise.prototype.get_m_cell_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_voronoi_noise_get_m_cell_grid_1(self, arg0), vector2);
-};
-    voronoi_noise.prototype['set_m_cell_grid'] = voronoi_noise.prototype.set_m_cell_grid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
-  var self = this.ptr;
-  ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_voronoi_noise_set_m_cell_grid_2(self, arg0, arg1);
-};
-    Object.defineProperty(voronoi_noise.prototype, 'm_cell_grid', { get: voronoi_noise.prototype.get_m_cell_grid, set: voronoi_noise.prototype.set_m_cell_grid });
-  voronoi_noise.prototype['get_m_cell_amount'] = voronoi_noise.prototype.get_m_cell_amount = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_voronoi_noise_get_m_cell_amount_0(self);
-};
-    voronoi_noise.prototype['set_m_cell_amount'] = voronoi_noise.prototype.set_m_cell_amount = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_voronoi_noise_set_m_cell_amount_1(self, arg0);
-};
-    Object.defineProperty(voronoi_noise.prototype, 'm_cell_amount', { get: voronoi_noise.prototype.get_m_cell_amount, set: voronoi_noise.prototype.set_m_cell_amount });
-  voronoi_noise.prototype['get_m_image_resolution'] = voronoi_noise.prototype.get_m_image_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_voronoi_noise_get_m_image_resolution_0(self);
-};
-    voronoi_noise.prototype['set_m_image_resolution'] = voronoi_noise.prototype.set_m_image_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_voronoi_noise_set_m_image_resolution_1(self, arg0);
-};
-    Object.defineProperty(voronoi_noise.prototype, 'm_image_resolution', { get: voronoi_noise.prototype.get_m_image_resolution, set: voronoi_noise.prototype.set_m_image_resolution });
-  voronoi_noise.prototype['get_m_seed'] = voronoi_noise.prototype.get_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_voronoi_noise_get_m_seed_0(self);
-};
-    voronoi_noise.prototype['set_m_seed'] = voronoi_noise.prototype.set_m_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_voronoi_noise_set_m_seed_1(self, arg0);
-};
-    Object.defineProperty(voronoi_noise.prototype, 'm_seed', { get: voronoi_noise.prototype.get_m_seed, set: voronoi_noise.prototype.set_m_seed });
-  voronoi_noise.prototype['get_m_color'] = voronoi_noise.prototype.get_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return !!(_emscripten_bind_voronoi_noise_get_m_color_0(self));
-};
-    voronoi_noise.prototype['set_m_color'] = voronoi_noise.prototype.set_m_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_voronoi_noise_set_m_color_1(self, arg0);
-};
-    Object.defineProperty(voronoi_noise.prototype, 'm_color', { get: voronoi_noise.prototype.get_m_color, set: voronoi_noise.prototype.set_m_color });
   voronoi_noise.prototype['__destroy__'] = voronoi_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_voronoi_noise___destroy___0(self);

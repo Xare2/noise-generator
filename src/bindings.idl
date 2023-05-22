@@ -4,24 +4,24 @@ interface vector2 {
 };
 
 interface noise_generator {
-    attribute long m_seed;
-    attribute boolean m_color;
+    // attribute long m_seed;
+    // attribute boolean m_color;
 
-    float rand_01();
-	long get_array_index(long width, long row, long col);
+    // float rand_01();
+	// long get_array_index(long width, long row, long col);
 
     void noise_generator(long s, boolean color);
 
 	float eval(float x, float y);
-	long[] getImageArray(long width, long height);
+	// sequence<long> getImageArray(long width, long height);
 };
 
 // implements noise_generator
 interface lattice_noise {
-    attribute float[] m_noise_grid;
-	attribute long m_noise_grid_resolution;
+    // attribute float[] m_noise_grid;
+	// attribute long m_noise_grid_resolution;
 
-    void calculate_noise_grid();
+    // void calculate_noise_grid();
 
     void lattice_noise(long noise_grid_resolution, long seed, boolean color);
 };
@@ -29,10 +29,10 @@ lattice_noise implements noise_generator;
 
 // implements lattice_noise
 interface perlin_noise {
-    attribute float m_frequency;
-	attribute vector2[] m_vector_grid;
+    // attribute float m_frequency;
+	// attribute vector2[] m_vector_grid;
 
-	float dotGridGradient(long ix, long iy, float x, float y);
+	// float dotGridGradient(long ix, long iy, float x, float y);
 
     void perlin_noise(float frequency, long noise_grid_resolution, long seed, boolean color);
 	float eval(float x, float y);
@@ -41,9 +41,9 @@ perlin_noise implements lattice_noise;
 
 interface value_noise  // : public lattice_noise
 {
-	attribute float m_frequency;
-	attribute long m_image_resolution;
-	attribute long m_noise_mask;
+	// attribute float m_frequency;
+	// attribute long m_image_resolution;
+	// attribute long m_noise_mask;
 
 	void value_noise(float frequency, long image_resolution, long noise_grid_resolution, long seed, boolean color);
 	float eval(float x, float y);
@@ -58,11 +58,11 @@ white_noise implements lattice_noise;
 
 interface voronoi_noise // public noise_generator
 {
-	attribute vector2[] m_cell_grid;
-	attribute long m_cell_amount;
-	attribute long m_image_resolution;
+	// attribute vector2[] m_cell_grid;
+	// attribute long m_cell_amount;
+	// attribute long m_image_resolution;
 
-	float distance(vector2 a, vector2 b);
+	// float distance(vector2 a, vector2 b);
 
     void voronoi_noise(long image_resolution, long cell_amount, long seed, boolean color);
 	float eval(float x, float y);

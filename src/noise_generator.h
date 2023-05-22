@@ -12,6 +12,7 @@ struct vector2
 class noise_generator
 {
 private:
+	int *m_image_data;
 	unsigned m_seed;
 	bool m_color;
 
@@ -21,7 +22,8 @@ protected:
 
 public:
 	noise_generator(unsigned s, bool color);
+	~noise_generator();
 
+	int *getImageArray(unsigned width, unsigned height);
 	virtual float eval(const float &x, const float &y);
-	virtual int *getImageArray(unsigned width, unsigned height);
 };

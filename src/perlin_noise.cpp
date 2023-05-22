@@ -19,6 +19,11 @@ perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsi
 		}
 }
 
+perlin_noise::~perlin_noise()
+{
+	delete[] m_vector_grid;
+}
+
 float perlin_noise::dotGridGradient(unsigned ix, unsigned iy, float x, float y)
 {
 	vector2 gradient = m_vector_grid[get_array_index(m_noise_grid_resolution, iy, ix)];

@@ -3,18 +3,18 @@
 voronoi_noise::voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed, bool color) :
 	noise_generator(seed, color)
 {
-	_image_resolution = image_resolution;
-	_cell_amount = cell_amount;
+	m_image_resolution = image_resolution;
+	m_cell_amount = cell_amount;
 
-	_cell_grid = new vector2[_cell_amount];
+	m_cell_grid = new vector2[m_cell_amount];
 
-	for (unsigned i = 0; i < _cell_amount; i++)
+	for (unsigned i = 0; i < m_cell_amount; i++)
 	{
 		vector2 v;
 		v.x = rand_01();
 		v.y = rand_01();
 
-		_cell_grid[i] = v;
+		m_cell_grid[i] = v;
 	}
 }
 
@@ -26,14 +26,14 @@ float voronoi_noise::distance(vector2 a, vector2 b)
 float voronoi_noise::eval(const float & x, const float & y)
 {
 	vector2 point;
-	point.x = x / (float)_image_resolution;
-	point.y = y / (float)_image_resolution;
+	point.x = x / (float)m_image_resolution;
+	point.y = y / (float)m_image_resolution;
 	
 	float distance = INFINITY;
 	
-	for (unsigned i = 0; i < _cell_amount; i++)
+	for (unsigned i = 0; i < m_cell_amount; i++)
 	{
-		vector2 v = _cell_grid[i];
+		vector2 v = m_cell_grid[i];
 
 		float d = this->distance(v, point);
 

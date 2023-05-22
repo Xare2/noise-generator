@@ -8,8 +8,8 @@ class perlin_noise :
 	public lattice_noise
 {
 private:
-	float _frequency;
-	vector2* _vector_grid;
+	float m_frequency;
+	vector2* m_vector_grid;
 
 	float dotGridGradient(unsigned ix, unsigned iy, float x, float y);
 

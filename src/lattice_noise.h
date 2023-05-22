@@ -4,8 +4,8 @@ class lattice_noise :
 	public noise_generator
 {
 protected:
-	float* _noise_grid;
-	unsigned _noise_grid_resolution;
+	float* m_noise_grid;
+	unsigned m_noise_grid_resolution;
 
 
 	void calculate_noise_grid();

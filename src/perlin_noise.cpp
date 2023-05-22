@@ -3,8 +3,8 @@
 perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color)
 	: lattice_noise(noise_grid_resolution, seed, color)
 {
-	_frequency = frequency;
-	_vector_grid = new vector2[noise_grid_resolution * noise_grid_resolution];
+	m_frequency = frequency;
+	m_vector_grid = new vector2[noise_grid_resolution * noise_grid_resolution];
 
 	for (unsigned j = 0; j < noise_grid_resolution; j++)
 		for (unsigned i = 0; i < noise_grid_resolution; i++)
@@ -15,13 +15,13 @@ perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsi
 			v.x = cos(random);
 			v.y = sin(random);
 
-			_vector_grid[get_array_index(noise_grid_resolution, j, i)] = v;
+			m_vector_grid[get_array_index(noise_grid_resolution, j, i)] = v;
 		}
 }
 
 float perlin_noise::dotGridGradient(unsigned ix, unsigned iy, float x, float y)
 {
-	vector2 gradient = _vector_grid[get_array_index(_noise_grid_resolution, iy, ix)];
+	vector2 gradient = m_vector_grid[get_array_index(m_noise_grid_resolution, iy, ix)];
 
 	// Compute the distance vector
 	float dx = x - (float)ix;
@@ -33,8 +33,8 @@ float perlin_noise::dotGridGradient(unsigned ix, unsigned iy, float x, float y)
 
 float perlin_noise::eval(const float &x, const float &y)
 {
-	float px = x * _frequency;
-	float py = y * _frequency;
+	float px = x * m_frequency;
+	float py = y * m_frequency;
 
 	unsigned x0 = (unsigned)floor(px);
 	unsigned x1 = x0 + 1;

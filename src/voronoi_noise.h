@@ -4,9 +4,9 @@ class voronoi_noise :
 	public noise_generator
 {
 private:
-	vector2* _cell_grid;
-	unsigned _cell_amount;
-	unsigned _image_resolution;
+	vector2* m_cell_grid;
+	unsigned m_cell_amount;
+	unsigned m_image_resolution;
 
 	float distance(vector2 a, vector2 b);
 

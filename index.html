@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 
-<header>
+<head>
     <title>Noise Generator</title>
     <script src="test.js"></script>
     <script src="./js/index.js"></script>
-</header>
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-    <canvas id="canvas" width="512" height="512">
+    <div class="app">
+        <h1>Noise Generator</h1>
+        <canvas id="canvas" width="512" height="512">
 
-    </canvas>
+        </canvas>
+
+        <select id="noise-type" onchange="onNoiseTypeChanged()">
+            <option value="perlin">Perlin noise</option>
+            <option value="value">Value noise</option>
+            <option value="voronoi">Voronoi noise</option>
+        </select>
+    </div>
 </body>

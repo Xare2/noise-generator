@@ -1,9 +1,8 @@
 #include "perlin_noise.h"
 
 perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color)
-	: lattice_noise(noise_grid_resolution, seed, color)
+	: lattice_noise(noise_grid_resolution, seed, frequency, color)
 {
-	m_frequency = frequency;
 	m_vector_grid = new vector2[noise_grid_resolution * noise_grid_resolution];
 
 	for (unsigned j = 0; j < noise_grid_resolution; j++)

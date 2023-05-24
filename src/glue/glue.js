@@ -198,6 +198,18 @@ noise_generator.prototype.__class__ = noise_generator;
 noise_generator.__cache__ = {};
 Module['noise_generator'] = noise_generator;
 
+noise_generator.prototype['set_color'] = noise_generator.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
+  var self = this.ptr;
+  if (color && typeof color === 'object') color = color.ptr;
+  _emscripten_bind_noise_generator_set_color_1(self, color);
+};;
+
+noise_generator.prototype['set_seed'] = noise_generator.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
+  var self = this.ptr;
+  if (seed && typeof seed === 'object') seed = seed.ptr;
+  _emscripten_bind_noise_generator_set_seed_1(self, seed);
+};;
+
 noise_generator.prototype['eval'] = noise_generator.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
   var self = this.ptr;
   if (x && typeof x === 'object') x = x.ptr;
@@ -210,11 +222,12 @@ noise_generator.prototype['eval'] = noise_generator.prototype.eval = /** @suppre
   _emscripten_bind_noise_generator___destroy___0(self);
 };
 // lattice_noise
-/** @suppress {undefinedVars, duplicate} @this{Object} */function lattice_noise(noise_grid_resolution, seed, color) {
+/** @suppress {undefinedVars, duplicate} @this{Object} */function lattice_noise(noise_grid_resolution, seed, frequency, color) {
   if (noise_grid_resolution && typeof noise_grid_resolution === 'object') noise_grid_resolution = noise_grid_resolution.ptr;
   if (seed && typeof seed === 'object') seed = seed.ptr;
+  if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
   if (color && typeof color === 'object') color = color.ptr;
-  this.ptr = _emscripten_bind_lattice_noise_lattice_noise_3(noise_grid_resolution, seed, color);
+  this.ptr = _emscripten_bind_lattice_noise_lattice_noise_4(noise_grid_resolution, seed, frequency, color);
   getCache(lattice_noise)[this.ptr] = this;
 };;
 lattice_noise.prototype = Object.create(noise_generator.prototype);
@@ -222,6 +235,24 @@ lattice_noise.prototype.constructor = lattice_noise;
 lattice_noise.prototype.__class__ = lattice_noise;
 lattice_noise.__cache__ = {};
 Module['lattice_noise'] = lattice_noise;
+
+lattice_noise.prototype['set_frequency'] = lattice_noise.prototype.set_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function(frequency) {
+  var self = this.ptr;
+  if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
+  _emscripten_bind_lattice_noise_set_frequency_1(self, frequency);
+};;
+
+lattice_noise.prototype['set_seed'] = lattice_noise.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
+  var self = this.ptr;
+  if (seed && typeof seed === 'object') seed = seed.ptr;
+  _emscripten_bind_lattice_noise_set_seed_1(self, seed);
+};;
+
+lattice_noise.prototype['set_color'] = lattice_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
+  var self = this.ptr;
+  if (color && typeof color === 'object') color = color.ptr;
+  _emscripten_bind_lattice_noise_set_color_1(self, color);
+};;
 
 lattice_noise.prototype['eval'] = lattice_noise.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
   var self = this.ptr;
@@ -293,6 +324,12 @@ perlin_noise.prototype.__class__ = perlin_noise;
 perlin_noise.__cache__ = {};
 Module['perlin_noise'] = perlin_noise;
 
+perlin_noise.prototype['set_seed'] = perlin_noise.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
+  var self = this.ptr;
+  if (seed && typeof seed === 'object') seed = seed.ptr;
+  _emscripten_bind_perlin_noise_set_seed_1(self, seed);
+};;
+
 perlin_noise.prototype['eval'] = perlin_noise.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
   var self = this.ptr;
   if (x && typeof x === 'object') x = x.ptr;
@@ -300,18 +337,29 @@ perlin_noise.prototype['eval'] = perlin_noise.prototype.eval = /** @suppress {un
   return _emscripten_bind_perlin_noise_eval_2(self, x, y);
 };;
 
+perlin_noise.prototype['set_frequency'] = perlin_noise.prototype.set_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function(frequency) {
+  var self = this.ptr;
+  if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
+  _emscripten_bind_perlin_noise_set_frequency_1(self, frequency);
+};;
+
+perlin_noise.prototype['set_color'] = perlin_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
+  var self = this.ptr;
+  if (color && typeof color === 'object') color = color.ptr;
+  _emscripten_bind_perlin_noise_set_color_1(self, color);
+};;
+
   perlin_noise.prototype['__destroy__'] = perlin_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_perlin_noise___destroy___0(self);
 };
 // value_noise
-/** @suppress {undefinedVars, duplicate} @this{Object} */function value_noise(frequency, image_resolution, noise_grid_resolution, seed, color) {
+/** @suppress {undefinedVars, duplicate} @this{Object} */function value_noise(frequency, noise_grid_resolution, seed, color) {
   if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
-  if (image_resolution && typeof image_resolution === 'object') image_resolution = image_resolution.ptr;
   if (noise_grid_resolution && typeof noise_grid_resolution === 'object') noise_grid_resolution = noise_grid_resolution.ptr;
   if (seed && typeof seed === 'object') seed = seed.ptr;
   if (color && typeof color === 'object') color = color.ptr;
-  this.ptr = _emscripten_bind_value_noise_value_noise_5(frequency, image_resolution, noise_grid_resolution, seed, color);
+  this.ptr = _emscripten_bind_value_noise_value_noise_4(frequency, noise_grid_resolution, seed, color);
   getCache(value_noise)[this.ptr] = this;
 };;
 value_noise.prototype = Object.create(lattice_noise.prototype);
@@ -325,6 +373,18 @@ value_noise.prototype['eval'] = value_noise.prototype.eval = /** @suppress {unde
   if (x && typeof x === 'object') x = x.ptr;
   if (y && typeof y === 'object') y = y.ptr;
   return _emscripten_bind_value_noise_eval_2(self, x, y);
+};;
+
+value_noise.prototype['set_frequency'] = value_noise.prototype.set_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function(frequency) {
+  var self = this.ptr;
+  if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
+  _emscripten_bind_value_noise_set_frequency_1(self, frequency);
+};;
+
+value_noise.prototype['set_color'] = value_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
+  var self = this.ptr;
+  if (color && typeof color === 'object') color = color.ptr;
+  _emscripten_bind_value_noise_set_color_1(self, color);
 };;
 
   value_noise.prototype['__destroy__'] = value_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -346,6 +406,18 @@ white_noise.prototype['eval'] = white_noise.prototype.eval = /** @suppress {unde
   return _emscripten_bind_white_noise_eval_2(self, x, y);
 };;
 
+white_noise.prototype['set_frequency'] = white_noise.prototype.set_frequency = /** @suppress {undefinedVars, duplicate} @this{Object} */function(frequency) {
+  var self = this.ptr;
+  if (frequency && typeof frequency === 'object') frequency = frequency.ptr;
+  _emscripten_bind_white_noise_set_frequency_1(self, frequency);
+};;
+
+white_noise.prototype['set_color'] = white_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
+  var self = this.ptr;
+  if (color && typeof color === 'object') color = color.ptr;
+  _emscripten_bind_white_noise_set_color_1(self, color);
+};;
+
   white_noise.prototype['__destroy__'] = white_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_white_noise___destroy___0(self);
@@ -365,11 +437,29 @@ voronoi_noise.prototype.__class__ = voronoi_noise;
 voronoi_noise.__cache__ = {};
 Module['voronoi_noise'] = voronoi_noise;
 
+voronoi_noise.prototype['set_cell_amount'] = voronoi_noise.prototype.set_cell_amount = /** @suppress {undefinedVars, duplicate} @this{Object} */function(cell_amount) {
+  var self = this.ptr;
+  if (cell_amount && typeof cell_amount === 'object') cell_amount = cell_amount.ptr;
+  _emscripten_bind_voronoi_noise_set_cell_amount_1(self, cell_amount);
+};;
+
+voronoi_noise.prototype['set_seed'] = voronoi_noise.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
+  var self = this.ptr;
+  if (seed && typeof seed === 'object') seed = seed.ptr;
+  _emscripten_bind_voronoi_noise_set_seed_1(self, seed);
+};;
+
 voronoi_noise.prototype['eval'] = voronoi_noise.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
   var self = this.ptr;
   if (x && typeof x === 'object') x = x.ptr;
   if (y && typeof y === 'object') y = y.ptr;
   return _emscripten_bind_voronoi_noise_eval_2(self, x, y);
+};;
+
+voronoi_noise.prototype['set_color'] = voronoi_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
+  var self = this.ptr;
+  if (color && typeof color === 'object') color = color.ptr;
+  _emscripten_bind_voronoi_noise_set_color_1(self, color);
 };;
 
   voronoi_noise.prototype['__destroy__'] = voronoi_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {

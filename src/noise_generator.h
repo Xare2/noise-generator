@@ -24,6 +24,8 @@ public:
 	noise_generator(unsigned s, bool color);
 	~noise_generator();
 
-	int *getImageArray(unsigned width, unsigned height);
+	void set_color(bool color);
+	
+	virtual void set_seed(unsigned seed);
 	virtual float eval(const float &x, const float &y);
 };

@@ -1,11 +1,13 @@
 const NOISE_SIZE = 512;
 
 let module_instance = null;
+let noise_module = null;
 
 Module().then(Module => {
     module_instance = Module;
 
     setPerlinNoise();
+    // setValueNoise();
 });
 
 function setCanvasTexture(noise_module) {
@@ -53,22 +55,35 @@ function onNoiseTypeChanged() {
     }
 }
 
+function onSeedChanged() {
+    if (noise_module === null) return;
+    
+    noise_module.set_seed(document.getElementById('seed').value);
+    setCanvasTexture(noise_module);
+}
+
 // perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
 function setPerlinNoise() {
-    let noise_module = new module_instance.perlin_noise(.05, NOISE_SIZE, 10, false);
+    if (noise_module !== null)
+        module_instance.destroy(noise_module);
+    noise_module = new module_instance.perlin_noise(.05, NOISE_SIZE, 10, false);
 
     setCanvasTexture(noise_module);
 }
 
 // value_noise(float frequency, unsigned image_resolution, unsigned noise_grid_resolution, unsigned seed, bool color);
 function setValueNoise() {
-    let noise_module = new module_instance.value_noise(.05, NOISE_SIZE, NOISE_SIZE, 0, false);
+    if (noise_module !== null)
+        module_instance.destroy(noise_module);
+    noise_module = new module_instance.value_noise(.05, NOISE_SIZE, NOISE_SIZE, 0, false);
 
     setCanvasTexture(noise_module);
 }
 // voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed, bool color);
 function setVoronoiNoise() {
-    let noise_module = new module_instance.voronoi_noise(NOISE_SIZE, 10, 0, false);
+    if (noise_module !== null)
+        module_instance.destroy(noise_module);
+    noise_module = new module_instance.voronoi_noise(NOISE_SIZE, 10, 0, false);
 
     setCanvasTexture(noise_module);
 }

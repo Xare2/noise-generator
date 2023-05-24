@@ -23,6 +23,14 @@ noise_generator* EMSCRIPTEN_KEEPALIVE emscripten_bind_noise_generator_noise_gene
   return new noise_generator(s, color);
 }
 
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_noise_generator_set_color_1(noise_generator* self, bool color) {
+  self->set_color(color);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_noise_generator_set_seed_1(noise_generator* self, int seed) {
+  self->set_seed(seed);
+}
+
 float EMSCRIPTEN_KEEPALIVE emscripten_bind_noise_generator_eval_2(noise_generator* self, float x, float y) {
   return self->eval(x, y);
 }
@@ -33,8 +41,20 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_noise_generator___destroy___0(noise_ge
 
 // lattice_noise
 
-lattice_noise* EMSCRIPTEN_KEEPALIVE emscripten_bind_lattice_noise_lattice_noise_3(int noise_grid_resolution, int seed, bool color) {
-  return new lattice_noise(noise_grid_resolution, seed, color);
+lattice_noise* EMSCRIPTEN_KEEPALIVE emscripten_bind_lattice_noise_lattice_noise_4(int noise_grid_resolution, int seed, float frequency, bool color) {
+  return new lattice_noise(noise_grid_resolution, seed, frequency, color);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_lattice_noise_set_frequency_1(lattice_noise* self, float frequency) {
+  self->set_frequency(frequency);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_lattice_noise_set_seed_1(lattice_noise* self, int seed) {
+  self->set_seed(seed);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_lattice_noise_set_color_1(lattice_noise* self, bool color) {
+  self->set_color(color);
 }
 
 float EMSCRIPTEN_KEEPALIVE emscripten_bind_lattice_noise_eval_2(lattice_noise* self, float x, float y) {
@@ -79,8 +99,20 @@ perlin_noise* EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise_perlin_noise_4(f
   return new perlin_noise(frequency, noise_grid_resolution, seed, color);
 }
 
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise_set_seed_1(perlin_noise* self, int seed) {
+  self->set_seed(seed);
+}
+
 float EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise_eval_2(perlin_noise* self, float x, float y) {
   return self->eval(x, y);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise_set_frequency_1(perlin_noise* self, float frequency) {
+  self->set_frequency(frequency);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise_set_color_1(perlin_noise* self, bool color) {
+  self->set_color(color);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise___destroy___0(perlin_noise* self) {
@@ -89,12 +121,20 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_perlin_noise___destroy___0(perlin_nois
 
 // value_noise
 
-value_noise* EMSCRIPTEN_KEEPALIVE emscripten_bind_value_noise_value_noise_5(float frequency, int image_resolution, int noise_grid_resolution, int seed, bool color) {
-  return new value_noise(frequency, image_resolution, noise_grid_resolution, seed, color);
+value_noise* EMSCRIPTEN_KEEPALIVE emscripten_bind_value_noise_value_noise_4(float frequency, int noise_grid_resolution, int seed, bool color) {
+  return new value_noise(frequency, noise_grid_resolution, seed, color);
 }
 
 float EMSCRIPTEN_KEEPALIVE emscripten_bind_value_noise_eval_2(value_noise* self, float x, float y) {
   return self->eval(x, y);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_value_noise_set_frequency_1(value_noise* self, float frequency) {
+  self->set_frequency(frequency);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_value_noise_set_color_1(value_noise* self, bool color) {
+  self->set_color(color);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_value_noise___destroy___0(value_noise* self) {
@@ -107,6 +147,14 @@ float EMSCRIPTEN_KEEPALIVE emscripten_bind_white_noise_eval_2(white_noise* self,
   return self->eval(x, y);
 }
 
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_white_noise_set_frequency_1(white_noise* self, float frequency) {
+  self->set_frequency(frequency);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_white_noise_set_color_1(white_noise* self, bool color) {
+  self->set_color(color);
+}
+
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_white_noise___destroy___0(white_noise* self) {
   delete self;
 }
@@ -117,8 +165,20 @@ voronoi_noise* EMSCRIPTEN_KEEPALIVE emscripten_bind_voronoi_noise_voronoi_noise_
   return new voronoi_noise(image_resolution, cell_amount, seed, color);
 }
 
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_voronoi_noise_set_cell_amount_1(voronoi_noise* self, int cell_amount) {
+  self->set_cell_amount(cell_amount);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_voronoi_noise_set_seed_1(voronoi_noise* self, int seed) {
+  self->set_seed(seed);
+}
+
 float EMSCRIPTEN_KEEPALIVE emscripten_bind_voronoi_noise_eval_2(voronoi_noise* self, float x, float y) {
   return self->eval(x, y);
+}
+
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_voronoi_noise_set_color_1(voronoi_noise* self, bool color) {
+  self->set_color(color);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_voronoi_noise___destroy___0(voronoi_noise* self) {

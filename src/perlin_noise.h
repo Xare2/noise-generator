@@ -3,18 +3,19 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-
-class perlin_noise :
-	public lattice_noise
+class perlin_noise : public lattice_noise
 {
 private:
-	vector2* m_vector_grid;
+	vector2 *m_vector_grid;
 
-	float dotGridGradient(unsigned ix, unsigned iy, float x, float y);
+	void create_vector_grid();
+	float dot_grid_gradient(unsigned ix, unsigned iy, float x, float y);
+	// void
 
 public:
 	perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
 	~perlin_noise();
-	float eval(const float& x, const float& y) override;
-};
 
+	void set_seed(unsigned seed) override;
+	float eval(const float &x, const float &y) override;
+};

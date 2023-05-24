@@ -16,5 +16,9 @@ public:
 		: noise_generator(seed) { };*/
 	lattice_noise(unsigned noise_grid_resolution, unsigned seed, float frequency, bool color);
 	~lattice_noise();
+
+	void set_frequency(float frequency);
+
+	void set_seed(unsigned seed) override;
 };
 

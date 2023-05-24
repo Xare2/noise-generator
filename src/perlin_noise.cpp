@@ -3,19 +3,7 @@
 perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color)
 	: lattice_noise(noise_grid_resolution, seed, frequency, color)
 {
-	m_vector_grid = new vector2[noise_grid_resolution * noise_grid_resolution];
-
-	for (unsigned j = 0; j < noise_grid_resolution; j++)
-		for (unsigned i = 0; i < noise_grid_resolution; i++)
-		{
-			float random = rand_01() * 2 * M_PI;
-
-			vector2 v;
-			v.x = cos(random);
-			v.y = sin(random);
-
-			m_vector_grid[get_array_index(noise_grid_resolution, j, i)] = v;
-		}
+	this->create_vector_grid();
 }
 
 perlin_noise::~perlin_noise()
@@ -23,7 +11,26 @@ perlin_noise::~perlin_noise()
 	delete[] m_vector_grid;
 }
 
-float perlin_noise::dotGridGradient(unsigned ix, unsigned iy, float x, float y)
+void perlin_noise::create_vector_grid()
+{
+	delete[] m_vector_grid;
+
+	m_vector_grid = new vector2[m_noise_grid_resolution * m_noise_grid_resolution];
+
+	for (unsigned j = 0; j < m_noise_grid_resolution; j++)
+		for (unsigned i = 0; i < m_noise_grid_resolution; i++)
+		{
+			float random = rand_01() * 2 * M_PI;
+
+			vector2 v;
+			v.x = cos(random);
+			v.y = sin(random);
+
+			m_vector_grid[get_array_index(m_noise_grid_resolution, j, i)] = v;
+		}
+}
+
+float perlin_noise::dot_grid_gradient(unsigned ix, unsigned iy, float x, float y)
 {
 	vector2 gradient = m_vector_grid[get_array_index(m_noise_grid_resolution, iy, ix)];
 
@@ -33,6 +40,13 @@ float perlin_noise::dotGridGradient(unsigned ix, unsigned iy, float x, float y)
 
 	// Compute the dot-product
 	return (dx * gradient.x + dy * gradient.y);
+}
+
+void perlin_noise::set_seed(unsigned seed)
+{
+	lattice_noise::set_seed(seed);
+
+	this->create_vector_grid();
 }
 
 float perlin_noise::eval(const float &x, const float &y)
@@ -53,12 +67,12 @@ float perlin_noise::eval(const float &x, const float &y)
 	// Interpolate between grid point gradients
 	float n0, n1, ix0, ix1, value;
 
-	n0 = this->dotGridGradient(x0, y0, px, py);
-	n1 = this->dotGridGradient(x1, y0, px, py);
+	n0 = this->dot_grid_gradient(x0, y0, px, py);
+	n1 = this->dot_grid_gradient(x1, y0, px, py);
 	ix0 = smootherstep(n0, n1, sx);
 
-	n0 = this->dotGridGradient(x0, y1, px, py);
-	n1 = this->dotGridGradient(x1, y1, px, py);
+	n0 = this->dot_grid_gradient(x0, y1, px, py);
+	n1 = this->dot_grid_gradient(x1, y1, px, py);
 	ix1 = smootherstep(n0, n1, sx);
 
 	value = smootherstep(ix0, ix1, sy);

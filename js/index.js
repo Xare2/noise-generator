@@ -57,9 +57,23 @@ function onNoiseTypeChanged() {
 
 function onSeedChanged() {
     if (noise_module === null) return;
-    
+
     noise_module.set_seed(document.getElementById('seed').value);
     setCanvasTexture(noise_module);
+}
+
+function onFrequencyChange() {
+    if (noise_module === null) return;
+
+    noise_module.set_frequency(document.getElementById('frequency-slider').value / 100);
+    setCanvasTexture(noise_module);
+}
+
+function onCellDensityChange() {
+    // if (noise_module === null) return;
+
+    // noise_module.set_cell_amount(document.getElementById('cell-density').value);
+    // setCanvasTexture(noise_module);
 }
 
 // perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
@@ -79,6 +93,7 @@ function setValueNoise() {
 
     setCanvasTexture(noise_module);
 }
+
 // voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed, bool color);
 function setVoronoiNoise() {
     if (noise_module !== null)

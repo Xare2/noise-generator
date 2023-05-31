@@ -20,11 +20,23 @@
             <option value="voronoi">Voronoi noise</option>
         </select>
 
-        <label>Seed: <input id="seed" type="number" value="0" onchange="onSeedChanged()"></label>
-        <label>Frequency: </label>
-        <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="5" class="slider" id="frequency-slider" oninput="onFrequencyChange()">
+        <div id="perlin-input" class="app">
+            <label>Seed: <input id="seed" type="number" value="0" onchange="onSeedChanged()"></label>
+            <label>Frequency: </label>
+            <input type="range" min="1" max="99" value="5" class="slider" id="frequency-slider"
+                oninput="onFrequencyChange()">
         </div>
-        <label>Cell density: <input id="cell-density" type="number" value="0" onchange="onCellDensityChange()"></label>
+
+        <div id="value-input" class="app">
+            <label>Seed: <input id="seed" type="number" value="0" onchange="onSeedChanged()"></label>
+            <label>Frequency: </label>
+            <input type="range" min="1" max="99" value="5" class="slider" id="frequency-slider"
+                oninput="onFrequencyChange()">
+        </div>
+        <div id="voronoi-input" class="app">
+            <label>Seed: <input id="seed" type="number" value="0" onchange="onSeedChanged()"></label>
+            <label>Cell density: <input id="cell-density" type="number" value="0"
+                    onchange="onCellDensityChange()"></label>
+        </div>
     </div>
 </body>

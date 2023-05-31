@@ -7,7 +7,6 @@ Module().then(Module => {
     module_instance = Module;
 
     setPerlinNoise();
-    // setValueNoise();
 });
 
 function setCanvasTexture(noise_module) {
@@ -22,8 +21,8 @@ function setCanvasTexture(noise_module) {
     const imageData = ctx.createImageData(cWidth, cHeight)
 
     let idx = 0;
-    for (let i = 0; i < cWidth; i++)
-        for (let j = 0; j < cHeight; j++) {
+    for (let i = 0; i < NOISE_SIZE; i++)
+        for (let j = 0; j < NOISE_SIZE; j++) {
             let c = noise_module.eval(j, i);
 
             imageData.data[idx + 0] = (c * 255);
@@ -55,41 +54,69 @@ function onNoiseTypeChanged() {
     }
 }
 
+function setPerlinVisibility(visible) {
+    document.getElementById('perlin-input').style.display = visible ? 'flex' : 'none';
+}
+
+function setValueVisibility(visible) {
+    document.getElementById('value-input').style.display = visible ? 'flex' : 'none';
+}
+
+function setVoronoiVisibility(visible) {
+    document.getElementById('voronoi-input').style.display = visible ? 'flex' : 'none';
+}
+
+function getSeed() {
+    return document.getElementById('seed').value;
+}
+
 function onSeedChanged() {
     if (noise_module === null) return;
 
-    noise_module.set_seed(document.getElementById('seed').value);
+    noise_module.set_seed(getSeed());
     setCanvasTexture(noise_module);
+}
+
+function getFrequency() {
+    return document.getElementById('frequency-slider').value;
 }
 
 function onFrequencyChange() {
     if (noise_module === null) return;
 
-    noise_module.set_frequency(document.getElementById('frequency-slider').value / 100);
+    noise_module.set_frequency(getFrequency() / 100);
     setCanvasTexture(noise_module);
 }
 
 function onCellDensityChange() {
-    // if (noise_module === null) return;
+    if (noise_module === null) return;
 
-    // noise_module.set_cell_amount(document.getElementById('cell-density').value);
-    // setCanvasTexture(noise_module);
+    noise_module.set_cell_amount(document.getElementById('cell-density').value);
+    setCanvasTexture(noise_module);
 }
 
 // perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
 function setPerlinNoise() {
     if (noise_module !== null)
         module_instance.destroy(noise_module);
-    noise_module = new module_instance.perlin_noise(.05, NOISE_SIZE, 10, false);
+    noise_module = new module_instance.perlin_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
+
+    setValueVisibility(false);
+    setPerlinVisibility(true);
+    setVoronoiVisibility(false);
 
     setCanvasTexture(noise_module);
 }
 
-// value_noise(float frequency, unsigned image_resolution, unsigned noise_grid_resolution, unsigned seed, bool color);
+// value_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color);
 function setValueNoise() {
     if (noise_module !== null)
         module_instance.destroy(noise_module);
-    noise_module = new module_instance.value_noise(.05, NOISE_SIZE, NOISE_SIZE, 0, false);
+    noise_module = new module_instance.value_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
+
+    setValueVisibility(true);
+    setPerlinVisibility(false);
+    setVoronoiVisibility(false);
 
     setCanvasTexture(noise_module);
 }
@@ -99,6 +126,10 @@ function setVoronoiNoise() {
     if (noise_module !== null)
         module_instance.destroy(noise_module);
     noise_module = new module_instance.voronoi_noise(NOISE_SIZE, 10, 0, false);
+
+    setValueVisibility(false);
+    setPerlinVisibility(false);
+    setVoronoiVisibility(true);
 
     setCanvasTexture(noise_module);
 }

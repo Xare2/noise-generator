@@ -1,3 +1,0 @@
-@cmd /k call ..\..\..\..\Desktop\Programas\emsdk\emsdk_env.bat
-REM @cmd /k call ..\..\..\..\Desktop\Programas\emscripten\tools\webidl_binder src\bindings.idl src\glue\glue
-REM @cmd /k call emcc .\src\helper_functions.cpp .\src\noise_generator.cpp .\src\lattice_noise.cpp .\src\perlin_noise.cpp .\src\white_noise.cpp .\src\value_noise.cpp .\src\voronoi_noise.cpp .\src\glue\glue_wrapper.cpp -s MODULARIZE --post-js .\src\glue\glue.js -o test.js

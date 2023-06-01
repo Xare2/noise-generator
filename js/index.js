@@ -70,10 +70,10 @@ function getSeed() {
     return document.getElementById('seed').value;
 }
 
-function onSeedChanged() {
+function onSeedChanged(value) {
     if (noise_module === null) return;
 
-    noise_module.set_seed(getSeed());
+    noise_module.set_seed(value);
     setCanvasTexture(noise_module);
 }
 
@@ -81,17 +81,17 @@ function getFrequency() {
     return document.getElementById('frequency-slider').value;
 }
 
-function onFrequencyChange() {
+function onFrequencyChange(value) {
     if (noise_module === null) return;
 
-    noise_module.set_frequency(getFrequency() / 100);
+    noise_module.set_frequency(value / 100);
     setCanvasTexture(noise_module);
 }
 
-function onCellDensityChange() {
+function onCellDensityChange(value) {
     if (noise_module === null) return;
 
-    noise_module.set_cell_amount(document.getElementById('cell-density').value);
+    noise_module.set_cell_amount(value);
     setCanvasTexture(noise_module);
 }
 
@@ -99,11 +99,12 @@ function onCellDensityChange() {
 function setPerlinNoise() {
     if (noise_module !== null)
         module_instance.destroy(noise_module);
-    noise_module = new module_instance.perlin_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
 
     setValueVisibility(false);
     setPerlinVisibility(true);
     setVoronoiVisibility(false);
+
+    noise_module = new module_instance.perlin_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
 
     setCanvasTexture(noise_module);
 }
@@ -112,11 +113,12 @@ function setPerlinNoise() {
 function setValueNoise() {
     if (noise_module !== null)
         module_instance.destroy(noise_module);
-    noise_module = new module_instance.value_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
 
     setValueVisibility(true);
     setPerlinVisibility(false);
     setVoronoiVisibility(false);
+
+    noise_module = new module_instance.value_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
 
     setCanvasTexture(noise_module);
 }
@@ -125,11 +127,12 @@ function setValueNoise() {
 function setVoronoiNoise() {
     if (noise_module !== null)
         module_instance.destroy(noise_module);
-    noise_module = new module_instance.voronoi_noise(NOISE_SIZE, 10, 0, false);
 
     setValueVisibility(false);
     setPerlinVisibility(false);
     setVoronoiVisibility(true);
+
+    noise_module = new module_instance.voronoi_noise(NOISE_SIZE, 10, 0, false);
 
     setCanvasTexture(noise_module);
 }

@@ -12,7 +12,6 @@ struct vector2
 class noise_generator
 {
 private:
-	int *m_image_data;
 	unsigned m_seed;
 	bool m_color;
 

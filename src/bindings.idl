@@ -41,7 +41,7 @@ interface perlin_noise {
 	// float dotGridGradient(long ix, long iy, float x, float y);
 
     void perlin_noise(float frequency, long noise_grid_resolution, long seed, boolean color);
-	void set_seed(long seed) ;
+	void set_seed(long seed);
 	float eval(float x, float y);
 };
 perlin_noise implements lattice_noise;

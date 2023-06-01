@@ -4,14 +4,12 @@ noise_generator::noise_generator(unsigned s, bool color)
 {
 	m_seed = s;
 	m_color = color;
-	m_image_data = nullptr;
 
 	std::srand(m_seed);
 }
 
 noise_generator::~noise_generator()
 {
-	delete[] m_image_data;
 }
 
 void noise_generator::set_seed(unsigned seed)

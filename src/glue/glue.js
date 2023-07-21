@@ -186,10 +186,19 @@ function ensureFloat64(value) {
 
 
 // noise_generator
-/** @suppress {undefinedVars, duplicate} @this{Object} */function noise_generator(s, color) {
-  if (s && typeof s === 'object') s = s.ptr;
+
+noise_generator.prototype['proba_array'] = noise_generator.prototype.proba_array = /** @suppress {undefinedVars, duplicate} @this{Object} */function(array, size) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof array == 'object') { array = ensureInt32(array); }
+  if (size && typeof size === 'object') size = size.ptr;
+  _emscripten_bind_noise_generator_proba_array_2(self, array, size);
+};;
+/** @suppress {undefinedVars, duplicate} @this{Object} */function noise_generator(resolution, seed, color) {
+  if (resolution && typeof resolution === 'object') resolution = resolution.ptr;
+  if (seed && typeof seed === 'object') seed = seed.ptr;
   if (color && typeof color === 'object') color = color.ptr;
-  this.ptr = _emscripten_bind_noise_generator_noise_generator_2(s, color);
+  this.ptr = _emscripten_bind_noise_generator_noise_generator_3(resolution, seed, color);
   getCache(noise_generator)[this.ptr] = this;
 };;
 noise_generator.prototype = Object.create(WrapperObject.prototype);
@@ -202,6 +211,18 @@ noise_generator.prototype['set_color'] = noise_generator.prototype.set_color = /
   var self = this.ptr;
   if (color && typeof color === 'object') color = color.ptr;
   _emscripten_bind_noise_generator_set_color_1(self, color);
+};;
+
+noise_generator.prototype['calculate_image_data'] = noise_generator.prototype.calculate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_noise_generator_calculate_image_data_0(self);
+};;
+
+noise_generator.prototype['populate_image_data'] = noise_generator.prototype.populate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(image) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof image == 'object') { image = ensureInt32(image); }
+  _emscripten_bind_noise_generator_populate_image_data_1(self, image);
 };;
 
 noise_generator.prototype['set_seed'] = noise_generator.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
@@ -217,6 +238,19 @@ noise_generator.prototype['eval'] = noise_generator.prototype.eval = /** @suppre
   return _emscripten_bind_noise_generator_eval_2(self, x, y);
 };;
 
+  noise_generator.prototype['get_image_data'] = noise_generator.prototype.get_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_noise_generator_get_image_data_1(self, arg0);
+};
+    noise_generator.prototype['set_image_data'] = noise_generator.prototype.set_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_noise_generator_set_image_data_2(self, arg0, arg1);
+};
+    Object.defineProperty(noise_generator.prototype, 'image_data', { get: noise_generator.prototype.get_image_data, set: noise_generator.prototype.set_image_data });
   noise_generator.prototype['__destroy__'] = noise_generator.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_noise_generator___destroy___0(self);
@@ -242,16 +276,42 @@ lattice_noise.prototype['set_frequency'] = lattice_noise.prototype.set_frequency
   _emscripten_bind_lattice_noise_set_frequency_1(self, frequency);
 };;
 
+lattice_noise.prototype['set_resolution'] = lattice_noise.prototype.set_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(resolution) {
+  var self = this.ptr;
+  if (resolution && typeof resolution === 'object') resolution = resolution.ptr;
+  _emscripten_bind_lattice_noise_set_resolution_1(self, resolution);
+};;
+
 lattice_noise.prototype['set_seed'] = lattice_noise.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
   var self = this.ptr;
   if (seed && typeof seed === 'object') seed = seed.ptr;
   _emscripten_bind_lattice_noise_set_seed_1(self, seed);
 };;
 
+lattice_noise.prototype['proba_array'] = lattice_noise.prototype.proba_array = /** @suppress {undefinedVars, duplicate} @this{Object} */function(array, size) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof array == 'object') { array = ensureInt32(array); }
+  if (size && typeof size === 'object') size = size.ptr;
+  _emscripten_bind_lattice_noise_proba_array_2(self, array, size);
+};;
+
 lattice_noise.prototype['set_color'] = lattice_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
   var self = this.ptr;
   if (color && typeof color === 'object') color = color.ptr;
   _emscripten_bind_lattice_noise_set_color_1(self, color);
+};;
+
+lattice_noise.prototype['calculate_image_data'] = lattice_noise.prototype.calculate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_lattice_noise_calculate_image_data_0(self);
+};;
+
+lattice_noise.prototype['populate_image_data'] = lattice_noise.prototype.populate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(image) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof image == 'object') { image = ensureInt32(image); }
+  _emscripten_bind_lattice_noise_populate_image_data_1(self, image);
 };;
 
 lattice_noise.prototype['eval'] = lattice_noise.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
@@ -261,6 +321,19 @@ lattice_noise.prototype['eval'] = lattice_noise.prototype.eval = /** @suppress {
   return _emscripten_bind_lattice_noise_eval_2(self, x, y);
 };;
 
+  lattice_noise.prototype['get_image_data'] = lattice_noise.prototype.get_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_lattice_noise_get_image_data_1(self, arg0);
+};
+    lattice_noise.prototype['set_image_data'] = lattice_noise.prototype.set_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_lattice_noise_set_image_data_2(self, arg0, arg1);
+};
+    Object.defineProperty(lattice_noise.prototype, 'image_data', { get: lattice_noise.prototype.get_image_data, set: lattice_noise.prototype.set_image_data });
   lattice_noise.prototype['__destroy__'] = lattice_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_lattice_noise___destroy___0(self);
@@ -276,38 +349,6 @@ Module['VoidPtr'] = VoidPtr;
   VoidPtr.prototype['__destroy__'] = VoidPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_VoidPtr___destroy___0(self);
-};
-// vector2
-/** @suppress {undefinedVars, duplicate} @this{Object} */function vector2() { throw "cannot construct a vector2, no constructor in IDL" }
-vector2.prototype = Object.create(WrapperObject.prototype);
-vector2.prototype.constructor = vector2;
-vector2.prototype.__class__ = vector2;
-vector2.__cache__ = {};
-Module['vector2'] = vector2;
-
-  vector2.prototype['get_x'] = vector2.prototype.get_x = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_vector2_get_x_0(self);
-};
-    vector2.prototype['set_x'] = vector2.prototype.set_x = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_vector2_set_x_1(self, arg0);
-};
-    Object.defineProperty(vector2.prototype, 'x', { get: vector2.prototype.get_x, set: vector2.prototype.set_x });
-  vector2.prototype['get_y'] = vector2.prototype.get_y = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return _emscripten_bind_vector2_get_y_0(self);
-};
-    vector2.prototype['set_y'] = vector2.prototype.set_y = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
-  var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_vector2_set_y_1(self, arg0);
-};
-    Object.defineProperty(vector2.prototype, 'y', { get: vector2.prototype.get_y, set: vector2.prototype.set_y });
-  vector2.prototype['__destroy__'] = vector2.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_vector2___destroy___0(self);
 };
 // perlin_noise
 /** @suppress {undefinedVars, duplicate} @this{Object} */function perlin_noise(frequency, noise_grid_resolution, seed, color) {
@@ -330,6 +371,12 @@ perlin_noise.prototype['set_seed'] = perlin_noise.prototype.set_seed = /** @supp
   _emscripten_bind_perlin_noise_set_seed_1(self, seed);
 };;
 
+perlin_noise.prototype['set_resolution'] = perlin_noise.prototype.set_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(resolution) {
+  var self = this.ptr;
+  if (resolution && typeof resolution === 'object') resolution = resolution.ptr;
+  _emscripten_bind_perlin_noise_set_resolution_1(self, resolution);
+};;
+
 perlin_noise.prototype['eval'] = perlin_noise.prototype.eval = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, y) {
   var self = this.ptr;
   if (x && typeof x === 'object') x = x.ptr;
@@ -343,12 +390,45 @@ perlin_noise.prototype['set_frequency'] = perlin_noise.prototype.set_frequency =
   _emscripten_bind_perlin_noise_set_frequency_1(self, frequency);
 };;
 
+perlin_noise.prototype['proba_array'] = perlin_noise.prototype.proba_array = /** @suppress {undefinedVars, duplicate} @this{Object} */function(array, size) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof array == 'object') { array = ensureInt32(array); }
+  if (size && typeof size === 'object') size = size.ptr;
+  _emscripten_bind_perlin_noise_proba_array_2(self, array, size);
+};;
+
 perlin_noise.prototype['set_color'] = perlin_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
   var self = this.ptr;
   if (color && typeof color === 'object') color = color.ptr;
   _emscripten_bind_perlin_noise_set_color_1(self, color);
 };;
 
+perlin_noise.prototype['calculate_image_data'] = perlin_noise.prototype.calculate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_perlin_noise_calculate_image_data_0(self);
+};;
+
+perlin_noise.prototype['populate_image_data'] = perlin_noise.prototype.populate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(image) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof image == 'object') { image = ensureInt32(image); }
+  _emscripten_bind_perlin_noise_populate_image_data_1(self, image);
+};;
+
+  perlin_noise.prototype['get_image_data'] = perlin_noise.prototype.get_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_perlin_noise_get_image_data_1(self, arg0);
+};
+    perlin_noise.prototype['set_image_data'] = perlin_noise.prototype.set_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_perlin_noise_set_image_data_2(self, arg0, arg1);
+};
+    Object.defineProperty(perlin_noise.prototype, 'image_data', { get: perlin_noise.prototype.get_image_data, set: perlin_noise.prototype.set_image_data });
   perlin_noise.prototype['__destroy__'] = perlin_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_perlin_noise___destroy___0(self);
@@ -381,12 +461,45 @@ value_noise.prototype['set_frequency'] = value_noise.prototype.set_frequency = /
   _emscripten_bind_value_noise_set_frequency_1(self, frequency);
 };;
 
+value_noise.prototype['proba_array'] = value_noise.prototype.proba_array = /** @suppress {undefinedVars, duplicate} @this{Object} */function(array, size) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof array == 'object') { array = ensureInt32(array); }
+  if (size && typeof size === 'object') size = size.ptr;
+  _emscripten_bind_value_noise_proba_array_2(self, array, size);
+};;
+
 value_noise.prototype['set_color'] = value_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
   var self = this.ptr;
   if (color && typeof color === 'object') color = color.ptr;
   _emscripten_bind_value_noise_set_color_1(self, color);
 };;
 
+value_noise.prototype['calculate_image_data'] = value_noise.prototype.calculate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_value_noise_calculate_image_data_0(self);
+};;
+
+value_noise.prototype['populate_image_data'] = value_noise.prototype.populate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(image) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof image == 'object') { image = ensureInt32(image); }
+  _emscripten_bind_value_noise_populate_image_data_1(self, image);
+};;
+
+  value_noise.prototype['get_image_data'] = value_noise.prototype.get_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_value_noise_get_image_data_1(self, arg0);
+};
+    value_noise.prototype['set_image_data'] = value_noise.prototype.set_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_value_noise_set_image_data_2(self, arg0, arg1);
+};
+    Object.defineProperty(value_noise.prototype, 'image_data', { get: value_noise.prototype.get_image_data, set: value_noise.prototype.set_image_data });
   value_noise.prototype['__destroy__'] = value_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_value_noise___destroy___0(self);
@@ -412,12 +525,45 @@ white_noise.prototype['set_frequency'] = white_noise.prototype.set_frequency = /
   _emscripten_bind_white_noise_set_frequency_1(self, frequency);
 };;
 
+white_noise.prototype['proba_array'] = white_noise.prototype.proba_array = /** @suppress {undefinedVars, duplicate} @this{Object} */function(array, size) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof array == 'object') { array = ensureInt32(array); }
+  if (size && typeof size === 'object') size = size.ptr;
+  _emscripten_bind_white_noise_proba_array_2(self, array, size);
+};;
+
 white_noise.prototype['set_color'] = white_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
   var self = this.ptr;
   if (color && typeof color === 'object') color = color.ptr;
   _emscripten_bind_white_noise_set_color_1(self, color);
 };;
 
+white_noise.prototype['calculate_image_data'] = white_noise.prototype.calculate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_white_noise_calculate_image_data_0(self);
+};;
+
+white_noise.prototype['populate_image_data'] = white_noise.prototype.populate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(image) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof image == 'object') { image = ensureInt32(image); }
+  _emscripten_bind_white_noise_populate_image_data_1(self, image);
+};;
+
+  white_noise.prototype['get_image_data'] = white_noise.prototype.get_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_white_noise_get_image_data_1(self, arg0);
+};
+    white_noise.prototype['set_image_data'] = white_noise.prototype.set_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_white_noise_set_image_data_2(self, arg0, arg1);
+};
+    Object.defineProperty(white_noise.prototype, 'image_data', { get: white_noise.prototype.get_image_data, set: white_noise.prototype.set_image_data });
   white_noise.prototype['__destroy__'] = white_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_white_noise___destroy___0(self);
@@ -443,6 +589,12 @@ voronoi_noise.prototype['set_cell_amount'] = voronoi_noise.prototype.set_cell_am
   _emscripten_bind_voronoi_noise_set_cell_amount_1(self, cell_amount);
 };;
 
+voronoi_noise.prototype['set_resolution'] = voronoi_noise.prototype.set_resolution = /** @suppress {undefinedVars, duplicate} @this{Object} */function(resolution) {
+  var self = this.ptr;
+  if (resolution && typeof resolution === 'object') resolution = resolution.ptr;
+  _emscripten_bind_voronoi_noise_set_resolution_1(self, resolution);
+};;
+
 voronoi_noise.prototype['set_seed'] = voronoi_noise.prototype.set_seed = /** @suppress {undefinedVars, duplicate} @this{Object} */function(seed) {
   var self = this.ptr;
   if (seed && typeof seed === 'object') seed = seed.ptr;
@@ -456,12 +608,45 @@ voronoi_noise.prototype['eval'] = voronoi_noise.prototype.eval = /** @suppress {
   return _emscripten_bind_voronoi_noise_eval_2(self, x, y);
 };;
 
+voronoi_noise.prototype['proba_array'] = voronoi_noise.prototype.proba_array = /** @suppress {undefinedVars, duplicate} @this{Object} */function(array, size) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof array == 'object') { array = ensureInt32(array); }
+  if (size && typeof size === 'object') size = size.ptr;
+  _emscripten_bind_voronoi_noise_proba_array_2(self, array, size);
+};;
+
 voronoi_noise.prototype['set_color'] = voronoi_noise.prototype.set_color = /** @suppress {undefinedVars, duplicate} @this{Object} */function(color) {
   var self = this.ptr;
   if (color && typeof color === 'object') color = color.ptr;
   _emscripten_bind_voronoi_noise_set_color_1(self, color);
 };;
 
+voronoi_noise.prototype['calculate_image_data'] = voronoi_noise.prototype.calculate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_voronoi_noise_calculate_image_data_0(self);
+};;
+
+voronoi_noise.prototype['populate_image_data'] = voronoi_noise.prototype.populate_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(image) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (typeof image == 'object') { image = ensureInt32(image); }
+  _emscripten_bind_voronoi_noise_populate_image_data_1(self, image);
+};;
+
+  voronoi_noise.prototype['get_image_data'] = voronoi_noise.prototype.get_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_voronoi_noise_get_image_data_1(self, arg0);
+};
+    voronoi_noise.prototype['set_image_data'] = voronoi_noise.prototype.set_image_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_voronoi_noise_set_image_data_2(self, arg0, arg1);
+};
+    Object.defineProperty(voronoi_noise.prototype, 'image_data', { get: voronoi_noise.prototype.get_image_data, set: voronoi_noise.prototype.set_image_data });
   voronoi_noise.prototype['__destroy__'] = voronoi_noise.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_voronoi_noise___destroy___0(self);

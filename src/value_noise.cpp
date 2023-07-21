@@ -3,6 +3,7 @@
 value_noise::value_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color)
 	: lattice_noise(noise_grid_resolution, seed, frequency, color)
 {
+	this->calculate_image_data();
 }
 
 float value_noise::eval(const float &x, const float &y)

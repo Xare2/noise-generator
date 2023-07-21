@@ -6,7 +6,6 @@ class voronoi_noise :
 private:
 	vector2* m_cell_grid;
 	unsigned m_cell_amount;
-	unsigned m_image_resolution;
 
 	void create_cell_grid();
 	float distance(vector2 a, vector2 b);
@@ -16,7 +15,8 @@ public:
 	~voronoi_noise();
 	
 	void set_cell_amount(unsigned cell_amount);
-	
+	void set_resolution(unsigned resolution);
+
 	void set_seed(unsigned seed) override;
 	float eval(const float& x, const float& y) override;
 };

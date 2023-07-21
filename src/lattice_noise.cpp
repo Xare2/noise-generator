@@ -1,10 +1,11 @@
 #include "lattice_noise.h"
 
-lattice_noise::lattice_noise(unsigned noise_grid_resolution, unsigned seed, float frequency, bool color) : noise_generator(seed, color)
+lattice_noise::lattice_noise(unsigned noise_grid_resolution, unsigned seed, float frequency, bool color) : noise_generator(noise_grid_resolution, seed, color)
 {
 	m_frequency = frequency;
 
 	m_noise_grid_resolution = noise_grid_resolution;
+	m_image_resolution = noise_grid_resolution;
 	this->calculate_noise_grid();
 }
 
@@ -27,6 +28,12 @@ void lattice_noise::calculate_noise_grid()
 void lattice_noise::set_frequency(float frequency)
 {
 	m_frequency = frequency;
+}
+
+void lattice_noise::set_resolution(unsigned resolution)
+{
+	m_noise_grid_resolution = resolution;
+	this->calculate_noise_grid();
 }
 
 void lattice_noise::set_seed(unsigned seed)

@@ -17,5 +17,6 @@ public:
 	~perlin_noise();
 
 	void set_seed(unsigned seed) override;
+	void set_resolution(unsigned resolution) override;
 	float eval(const float &x, const float &y) override;
 };

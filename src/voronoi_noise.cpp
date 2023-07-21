@@ -1,12 +1,12 @@
 #include "voronoi_noise.h"
 
 voronoi_noise::voronoi_noise(unsigned image_resolution, unsigned cell_amount, unsigned seed, bool color)
-	: noise_generator(seed, color)
+	: noise_generator(image_resolution, seed, color)
 {
-	m_image_resolution = image_resolution;
 	m_cell_amount = cell_amount;
 
 	this->create_cell_grid();
+	this->calculate_image_data();
 }
 
 voronoi_noise::~voronoi_noise()
@@ -38,12 +38,20 @@ void voronoi_noise::set_cell_amount(unsigned cell_amount)
 {
 	m_cell_amount = cell_amount;
 	this->create_cell_grid();
+	this->calculate_image_data();
+}
+
+void voronoi_noise::set_resolution(unsigned resolution)
+{
+	m_image_resolution = resolution;
+	this->calculate_image_data();
 }
 
 void voronoi_noise::set_seed(unsigned seed)
 {
 	noise_generator::set_seed(seed);
 	this->create_cell_grid();
+	this->calculate_image_data();
 }
 
 // TODO store array with distances to change F1, F2, F3, etc...

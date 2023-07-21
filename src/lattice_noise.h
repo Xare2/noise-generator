@@ -18,6 +18,7 @@ public:
 	~lattice_noise();
 
 	void set_frequency(float frequency);
+	virtual void set_resolution(unsigned resolution);
 
 	void set_seed(unsigned seed) override;
 };

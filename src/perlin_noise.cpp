@@ -3,7 +3,9 @@
 perlin_noise::perlin_noise(float frequency, unsigned noise_grid_resolution, unsigned seed, bool color)
 	: lattice_noise(noise_grid_resolution, seed, frequency, color)
 {
+	printf("Create perlin noise\n");
 	this->create_vector_grid();
+	this->calculate_image_data();
 }
 
 perlin_noise::~perlin_noise()
@@ -47,6 +49,15 @@ void perlin_noise::set_seed(unsigned seed)
 	lattice_noise::set_seed(seed);
 
 	this->create_vector_grid();
+	this->calculate_image_data();
+}
+
+void perlin_noise::set_resolution(unsigned resolution)
+{
+	lattice_noise::set_resolution(resolution);
+
+	this->create_vector_grid();
+	this->calculate_image_data();
 }
 
 float perlin_noise::eval(const float &x, const float &y)

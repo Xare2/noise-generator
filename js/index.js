@@ -1,8 +1,6 @@
-const NOISE_SIZE = 512;
-
 let module_instance = null;
 let noise_module = null;
-
+let array = null;
 Module().then(Module => {
     module_instance = Module;
 
@@ -10,25 +8,34 @@ Module().then(Module => {
 });
 
 function setCanvasTexture(noise_module) {
+    console.log("set texture called");
     if (module_instance === null)
         return;
 
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
-    const cWidth = canvas.clientWidth;
-    const cHeight = canvas.clientHeight;
+    const cWidth = canvas.width;
+    const cHeight = canvas.height;
     const imageData = ctx.createImageData(cWidth, cHeight)
 
+    // const data = noise_module.get_image_data();
+    // array = new Uint8Array(cWidth * cHeight * 4);
+    // noise_module.populate_image_data(array);
+    // imageData.data = array;
     let idx = 0;
-    for (let i = 0; i < NOISE_SIZE; i++)
-        for (let j = 0; j < NOISE_SIZE; j++) {
+    for (let i = 0; i < cWidth; i++)
+        for (let j = 0; j < cHeight; j++) {
             let c = noise_module.eval(j, i);
 
-            imageData.data[idx + 0] = (c * 255);
-            imageData.data[idx + 1] = (c * 255);
-            imageData.data[idx + 2] = (c * 255);
-            imageData.data[idx + 3] = (255);
+            imageData.data[idx + 0] = c * 255;
+            imageData.data[idx + 1] = c * 255;;
+            imageData.data[idx + 2] = c * 255;;
+            imageData.data[idx + 3] = 255;
+            // imageData.data[idx + 0] = noise_module.get_image_data(idx + 0);
+            // imageData.data[idx + 1] = noise_module.get_image_data(idx + 1);
+            // imageData.data[idx + 2] = noise_module.get_image_data(idx + 2);
+            // imageData.data[idx + 3] = noise_module.get_image_data(idx + 3);
 
             idx += 4;
         }
@@ -52,6 +59,24 @@ function onNoiseTypeChanged() {
             setVoronoiNoise();
             break;
     }
+}
+
+function getResolution() {
+    const select = document.getElementById('resolution');
+    return select.options[select.selectedIndex].value;
+}
+
+function onResolutionChanged(value) {
+    if (module_instance === null)
+        return;
+
+    let canvas = document.getElementById('canvas');
+
+    canvas.width = value;
+    canvas.height = value;
+
+    noise_module.set_resolution(value);
+    setCanvasTexture(noise_module);
 }
 
 function setPerlinVisibility(visible) {
@@ -104,7 +129,7 @@ function setPerlinNoise() {
     setPerlinVisibility(true);
     setVoronoiVisibility(false);
 
-    noise_module = new module_instance.perlin_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
+    noise_module = new module_instance.perlin_noise(getFrequency() / 100, getResolution(), getSeed(), false);
 
     setCanvasTexture(noise_module);
 }
@@ -118,7 +143,7 @@ function setValueNoise() {
     setPerlinVisibility(false);
     setVoronoiVisibility(false);
 
-    noise_module = new module_instance.value_noise(getFrequency() / 100, NOISE_SIZE, getSeed(), false);
+    noise_module = new module_instance.value_noise(getFrequency() / 100, getResolution(), getSeed(), false);
 
     setCanvasTexture(noise_module);
 }
@@ -132,7 +157,7 @@ function setVoronoiNoise() {
     setPerlinVisibility(false);
     setVoronoiVisibility(true);
 
-    noise_module = new module_instance.voronoi_noise(NOISE_SIZE, 10, 0, false);
+    noise_module = new module_instance.voronoi_noise(getResolution(), 10, 0, false);
 
     setCanvasTexture(noise_module);
 }

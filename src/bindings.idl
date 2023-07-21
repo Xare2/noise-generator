@@ -1,81 +1,63 @@
-interface vector2 {
-    attribute float x;
-    attribute float y;
-};
+// interface int_value
+// {
+// 	attribute long value;
+
+// 	void int_value(long v);
+// };
 
 interface noise_generator {
-    // attribute long m_seed;
-    // attribute boolean m_color;
+	void proba_array([Ref] long[] array, long size);
 
-    // float rand_01();
-	// long get_array_index(long width, long row, long col);
+	attribute long[] image_data;
 
-    void noise_generator(long s, boolean color);
+    void noise_generator(long resolution, long seed, boolean color);
 	void set_color(boolean color);
-	
+	void calculate_image_data();
+	void populate_image_data(long[] image);
 	void set_seed(long seed);
 
 	float eval(float x, float y);
 };
 
-// implements noise_generator
 interface lattice_noise {
-    // attribute float[] m_noise_grid;
-	// attribute long m_noise_grid_resolution;
-
-    // void calculate_noise_grid();
-
     void lattice_noise(long noise_grid_resolution, long seed, float frequency, boolean color);
 
 	void set_frequency(float frequency);
+	void set_resolution(long resolution);
 
 	void set_seed(long seed) ;
 };
 lattice_noise implements noise_generator;
 
-// implements lattice_noise
 interface perlin_noise {
-    // attribute float m_frequency;
-	// attribute vector2[] m_vector_grid;
-
-	// float dotGridGradient(long ix, long iy, float x, float y);
-
     void perlin_noise(float frequency, long noise_grid_resolution, long seed, boolean color);
 	void set_seed(long seed);
+	void set_resolution(long resolution);
 	float eval(float x, float y);
 };
 perlin_noise implements lattice_noise;
 
-interface value_noise  // : public lattice_noise
+interface value_noise 
 {
-	// attribute float m_frequency;
-	// attribute long m_image_resolution;
-	// attribute long m_noise_mask;
-
 	void value_noise(float frequency, long noise_grid_resolution, long seed, boolean color);
 	float eval(float x, float y);
 };
 value_noise implements lattice_noise;
 
-interface white_noise //:	public lattice_noise
+interface white_noise
 {
 	float eval(float x, float y);
 };
 white_noise implements lattice_noise;
 
-interface voronoi_noise // public noise_generator
+interface voronoi_noise 
 {
-	// attribute vector2[] m_cell_grid;
-	// attribute long m_cell_amount;
-	// attribute long m_image_resolution;
-
-	// float distance(vector2 a, vector2 b);
-
     void voronoi_noise(long image_resolution, long cell_amount, long seed, boolean color);
 
 	void set_cell_amount(long cell_amount);
+	void set_resolution(long resolution);
 	
-	void set_seed(long seed) ;
+	void set_seed(long seed);
 	float eval(float x, float y);
 };
 voronoi_noise implements noise_generator;

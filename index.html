@@ -10,14 +10,23 @@
 <body>
     <div class="app">
         <h1>Noise Generator</h1>
-        <canvas id="canvas" width="512" height="512">
+        <canvas id="canvas" class="noise-canvas" width="512" height="512">
 
         </canvas>
 
+        <label for="noise-type">Noise type</label>
         <select id="noise-type" onchange="onNoiseTypeChanged()">
             <option value="perlin">Perlin noise</option>
             <option value="value">Value noise</option>
             <option value="voronoi">Voronoi noise</option>
+        </select>
+
+        <label for="resolution">Resolution</label>
+        <select id="resolution" onchange="onResolutionChanged(this.value)">
+            <option value="512">512x512</option>
+            <option value="1024">1024x1024</option>
+            <option value="2048">2048x2048</option>
+            <option value="4096">4096x4096</option>
         </select>
 
         <div id="perlin-input" class="app">
